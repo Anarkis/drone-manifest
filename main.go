@@ -29,6 +29,11 @@ func main() {
 			Usage:  "password for registry",
 			EnvVar: "PLUGIN_PASSWORD,MANIFEST_PASSWORD,DOCKER_PASSWORD",
 		},
+		cli.StringFlag{
+			Name:   "publicecr",
+			Usage:  "connecting to public ecr",
+			EnvVar: "PUBLIC_ECR",
+		},
 		cli.BoolFlag{
 			Name:   "insecure",
 			Usage:  "enable allow insecure registry",
@@ -194,6 +199,7 @@ func run(c *cli.Context) error {
 		Config: Config{
 			Username:      c.String("username"),
 			Password:      c.String("password"),
+			Publicecr:     c.Bool("publicecr"),
 			Insecure:      c.Bool("insecure"),
 			Platforms:     c.StringSlice("platforms"),
 			Target:        c.String("target"),
