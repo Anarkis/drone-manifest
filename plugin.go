@@ -82,7 +82,7 @@ func (p *Plugin) Exec() error {
 			args = append(args, fmt.Sprintf("--username=%s", p.Config.Username))
 		}
 	} else {
-		args = append(args, "--docker-cfg='/root/.docker'")
+		args = append(args, "--docker-cfg='/root/.docker/'")
 	}
 
 	if p.Config.Password == "" && p.Config.Username != "" {
@@ -174,6 +174,8 @@ func (p *Plugin) Exec() error {
 	if p.Config.IgnoreMissing {
 		args = append(args, "--ignore-missing")
 	}
+
+	fmt.Println("Args: %s", args)
 
 	cmd := exec.Command(
 		mainfestToolPath(),
