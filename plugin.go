@@ -175,6 +175,8 @@ func (p *Plugin) Exec() error {
 		args = append(args, "--ignore-missing")
 	}
 
+	fmt.Println("Args: %s", args)
+
 	cmd := exec.Command(
 		mainfestToolPath(),
 		args...,
