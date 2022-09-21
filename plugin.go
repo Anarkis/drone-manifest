@@ -177,9 +177,12 @@ func (p *Plugin) Exec() error {
 
 	fmt.Println("Args: %s", args)
 
+	// cmd := exec.Command(
+	// 	mainfestToolPath(),
+	// 	args...,
+	// )
 	cmd := exec.Command(
-		mainfestToolPath(),
-		args...,
+		"ls /root/.docker/",
 	)
 
 	cmd.Stdout = os.Stdout
